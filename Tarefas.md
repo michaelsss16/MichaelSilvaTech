@@ -1,5 +1,8 @@
 # Lista de tarefas
 
+https://www.youtube.com/watch?v=TBplwrsUj4s
+tab index 
+main, parágrafos e divisões 
 Adicionar reumo e sumário no início do artigo de power shell 
 Adicionar ícones de contato youtube e whatsapp no footer 
 Adicionar modelo de lista de artigos recentes para aidiconar nas páginas correspondentes
