@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aulas de canto - Área do Aluno</title>
+
+	<style>
+		body {
+			background: linear-gradient(to bottom, #FFFFFF, #666);
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 20px;
+		}
+
+		h1 {
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+		}
+
+		/* Estilos adicionais para a página Área do Aluno */
+		.section {
+			margin-bottom: 20px;
+		}
+
+		.section-heading {
+			font-size: 20px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		.section-content {
+			margin-top: 10px;
+			padding-left: 20px;
+			display: none;
+		}
+
+		.audio-file {
+			margin-bottom: 5px;
+		}
+
+		.audio-file a {
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>Área do Aluno</h1>
+
+	<div class="section">
+		<div class="section-heading" onclick="toggleSection(1)">
+			Materiais de Aquecimento Vocal
+		</div>
+		<div class="section-content" id="section-1">
+			<div class="audio-file">
+				<a href="canto_aquecimento1.mp3" download>Exercício 1</a>
+			</div>
+			<div class="audio-file">
+				<a href="canto_aquecimento2.mp3" download>Exercício 2</a>
+			</div>
+			<!-- Adicione mais arquivos de áudio para aquecimento vocal -->
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="section-heading" onclick="toggleSection(2)">
+			Materiais de Técnica Vocal
+		</div>
+		<div class="section-content" id="section-2">
+			<div class="audio-file">
+				<a href="canto_tecnica1.mp3" download>Exercício 1</a>
+			</div>
+			<div class="audio-file">
+				<a href="canto_tecnica2.mp3" download>Exercício 2</a>
+			</div>
+			<!-- Adicione mais arquivos de áudio para técnica vocal -->
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="section-heading" onclick="toggleSection(3)">
+			Materiais de Repertório
+		</div>
+		<div class="section-content" id="section-3">
+			<div class="audio-file">
+				<a href="canto_repertorio1.mp3" download>Exemplo 1</a>
+			</div>
+			<div class="audio-file">
+				<a href="canto_repertorio2.mp3" download>Exemplo 2</a>
+			</div>
+			<!-- Adicione mais arquivos de áudio para repertório -->
+		</div>
+	</div>
+
+	<script>
+		// Função para alternar a exibição da seção
+		function toggleSection(sectionId) {
+			const section = document.getElementById(`section-${sectionId}`);
+			section.style.display = section.style.display === 'none' ? 'block' : 'none';
+		}
+	</script>
+
+</body>
+
+</html>
