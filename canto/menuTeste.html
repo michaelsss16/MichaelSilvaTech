@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu Hamburguer com Resultados</title>
+  <style>
+    /* Estilos do menu */
+    /* ... */
+
+    /* Estilos do painel */
+    /* ... */
+  </style>
+</head>
+<body>
+  <div id="menu-icon">
+    <span class="sr-only">Menu Hamburguer</span>
+    &#9776;
+  </div>
+  <div id="menu-panel">
+    <ul id="menu"></ul>
+  </div>
+
+  <script>
+    // Pasta que contém os arquivos .html
+    const pasta = '/canto';
+
+    const menuIcon = document.getElementById('menu-icon');
+    const menuPanel = document.getElementById('menu-panel');
+    const menu = document.getElementById('menu');
+
+    menuIcon.addEventListener('click', toggleMenuPanel);
+
+    fetch(pasta)
+      .then(response => response.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        const links = doc.querySelectorAll('a[href$=".html"]');
+
+        links.forEach(link => {
+          const listItem = document.createElement('li');
+          const anchor = document.createElement('a');
+          const url = new URL(link.href);
+          anchor.href = link.href;
+          anchor.textContent = url.pathname.split('/').pop().split('.')[0];
+          listItem.appendChild(anchor);
+          menu.appendChild(listItem);
+        });
+      })
+      .catch(error => {
+        console.error('Erro ao obter a lista de arquivos:', error);
+      });
+
+    function toggleMenuPanel() {
+      menuPanel.style.display = menuPanel.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
