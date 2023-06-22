@@ -1,3 +1,8 @@
+<!-- Mudar a cor do fundo
+<!-- Adicionar um carrocel de imagens -->
+<!-- As imagens devem estar na pasta de imagens  -->
+<!-- Adicionar menu hamburguer para redirecionar para as outras páginas do site -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,38 +10,10 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Aulas de canto - Michael</title>
-
-	<style>
-		body {
-			background: linear-gradient(to bottom, #FFFFFF, #666);
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 20px;
-		}
-
-		h1 {
-			font-size: 24px;
-			font-weight: bold;
-			color: #333;
-		}
-
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		}
-
-		p {
-			font-family: "Roboto", Arial, sans-serif;
-			font-size: 16px;
-			line-height: 1.5;
-			color: #666;
-
-		}
-	</style>
+	<link rel="stylesheet" href="/style/main.css">
+	<script src="/js/util.js"></script>
 </head>
 
 <!-- Corpo -->
@@ -44,6 +21,7 @@
 <body>
 
 	<h1>Bem-vindo(a) ao mundo da música e do canto!</h1>
+
 	<p>Você já sonhou em dominar sua voz, expressar emoções através das notas e encantar plateias com sua performance? Se
 		sim, você está no lugar certo!</p>
 
@@ -111,17 +89,14 @@
 
 	<footer>
 		<div class="footer-content">
-			<p>&copy; <span id="current-year"></span> Michael Silva. Todos os direitos reservados.</p>
+			<p>&copy; <span  id="anoAtual"></span> Michael Silva. Todos os direitos reservados.</p>
 		</div>
+		<ul id="menu"></ul>
 	</footer>
 
 	<script>
-		// Obter o elemento do ano atual e definir seu conteúdo
-		var currentYear = new Date().getFullYear();
-		document.getElementById("current-year").textContent = currentYear;
-
+		    const elementoAnoAtual = document.getElementById('anoAtual');
+    elementoAnoAtual.textContent = obterAnoAtual();
 	</script>
-
 </body>
-
 </html>

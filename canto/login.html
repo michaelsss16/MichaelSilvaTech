@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Página com Código de Acesso</title>
+
+	<style>
+		/* Estilos de CSS */
+	</style>
+</head>
+
+<body>
+	<h1>Página com Código de Acesso</h1>
+
+	<p>Para acessar o conteúdo exclusivo, insira o código de acesso:</p>
+
+	<form id="access-form" onsubmit="handleAccessFormSubmit(event)">
+		<input type="text" id="access-code" required>
+		<button type="submit">Acessar</button>
+	</form>
+
+	<div id="access-content" style="display: none;">
+		<h2>Conteúdo Exclusivo</h2>
+		<p>Aqui está o conteúdo exclusivo que só é exibido quando o código de acesso correto é inserido.</p>
+	</div>
+
+	<script>
+		function handleAccessFormSubmit(event) {
+			event.preventDefault();
+
+			const accessCodeInput = document.getElementById('access-code');
+			const accessCode = accessCodeInput.value.trim();
+
+			// Verifique se o código de acesso está correto
+			if (accessCode === '123') {
+				// Exiba o conteúdo exclusivo
+				const accessContent = document.getElementById('access-content');
+				accessContent.style.display = 'block';
+			}
+
+			// Limpe o campo de entrada do código
+			accessCodeInput.value = '';
+		}
+	</script>
+</body>
+
+</html>
