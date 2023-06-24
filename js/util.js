@@ -28,3 +28,34 @@ fetch(pasta)
   .catch(error => {
     console.error('Erro ao obter a lista de arquivos:', error);
   });
+
+
+  // Function to fetch and insert the header content
+function insertHeader() {
+  fetch('/models/menuCanto.html')
+    .then(response => response.text())
+    .then(html => {
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      headerPlaceholder.innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading header:', error);
+    });
+}
+
+// Function to fetch and insert the footer content
+function insertFooter() {
+  fetch('/models/menuCanto.html')
+    .then(response => response.text())
+    .then(html => {
+      const footerPlaceholder = document.getElementById('footer-placeholder');
+      footerPlaceholder.innerHTML = html;
+    })
+    .catch(error => {
+      console.error('Error loading footer:', error);
+    });
+}
+
+// Call the functions to insert the header and footer
+insertHeader();
+insertFooter();
