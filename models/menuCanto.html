@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Menu Hamburguer com Resultados</title>
-  <style>
-    /* Estilos do menu */
-    /* ... */
-
-    /* Estilos do painel */
-    /* ... */
-  </style>
-</head>
 <body>
+  <a href="/canto.html" class="home-link" aria-label="Início">Início</a>
+
   <div id="menu-icon">
-    <span class="sr-only">Menu Hamburguer</span>
+    <span class="sr-only">Menu</span>
     &#9776;
   </div>
-  <div id="menu-panel">
-    <ul id="menu"></ul>
+  <div id="menu-panel" style="display: none;">
+    <div id="menu"></div>
   </div>
-
+  
   <script>
-    // Pasta que contém os arquivos .html
     const pasta = '/canto';
 
     const menuIcon = document.getElementById('menu-icon');
@@ -38,13 +27,15 @@
         const links = doc.querySelectorAll('a[href$=".html"]');
 
         links.forEach(link => {
-          const listItem = document.createElement('li');
           const anchor = document.createElement('a');
           const url = new URL(link.href);
           anchor.href = link.href;
           anchor.textContent = url.pathname.split('/').pop().split('.')[0];
-          listItem.appendChild(anchor);
-          menu.appendChild(listItem);
+          
+          const lineBreak = document.createElement('br');
+          
+          menu.appendChild(anchor);
+          menu.appendChild(lineBreak);
         });
       })
       .catch(error => {
@@ -56,4 +47,3 @@
     }
   </script>
 </body>
-</html>

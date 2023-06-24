@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Player</title>
+  <style>
+    /* CSS styles for the audio player */
+    .audio-player {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .audio-player audio {
+      width: 300px;
+    }
+    .audio-player button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="audio-player">
+    <audio id="audio-player" controls>
+      <source src="audio1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <div>
+      <button id="prev-button" disabled>Previous</button>
+      <button id="next-button" disabled>Next</button>
+    </div>
+  </div>
+
+  <script>
+    const audioPlayer = document.getElementById('audio-player');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const audioFiles = ['/audios/Aquecimento - 80 bpm.mp3', '/audios/Aquecimento - 120 bpm.mp3'];
+
+    let currentTrack = 0;
+
+    function updateButtons() {
+      prevButton.disabled = currentTrack === 0;
+      nextButton.disabled = currentTrack === audioFiles.length - 1;
+    }
+
+    function playTrack(trackIndex) {
+      if (trackIndex >= 0 && trackIndex < audioFiles.length) {
+        audioPlayer.src = audioFiles[trackIndex];
+        audioPlayer.play();
+        currentTrack = trackIndex;
+        updateButtons();
+      }
+    }
+
+    prevButton.addEventListener('click', () => {
+      playTrack(currentTrack - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+      playTrack(currentTrack + 1);
+    });
+
+    audioPlayer.addEventListener('ended', () => {
+      playTrack(currentTrack + 1);
+    });
+
+    playTrack(0); // Play the first track initially
+  </script>
+</body>
+</html>
