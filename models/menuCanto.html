@@ -1,49 +1,55 @@
-<body>
-  <a href="/canto.html" class="home-link" aria-label="Início">Início</a>
 
-  <div id="menu-icon">
-    <span class="sr-only">Menu</span>
-    &#9776;
-  </div>
-  <div id="menu-panel" style="display: none;">
-    <div id="menu"></div>
-  </div>
-  
-  <script>
-    const pasta = '/canto';
+<a href="/canto.html" class="home-link" aria-label="Início">Início</a>
 
-    const menuIcon = document.getElementById('menu-icon');
-    const menuPanel = document.getElementById('menu-panel');
-    const menu = document.getElementById('menu');
+    <div id="menu-icon">
+        <span class="sr-only">Menu</span>
+        &#9776;
+    </div>
+    <div id="menu-panel" style="display: none;">
+        <div id="menu"></div>
+    </div>
 
-    menuIcon.addEventListener('click', toggleMenuPanel);
+    <script>
+        const pasta = '/canto';
 
-    fetch(pasta)
-      .then(response => response.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+        const menuIcon = document.getElementById('menu-icon');
+        const menuPanel = document.getElementById('menu-panel');
+        const menu = document.getElementById('menu');
 
-        const links = doc.querySelectorAll('a[href$=".html"]');
+        menuIcon.addEventListener('click', toggleMenuPanel);
 
-        links.forEach(link => {
-          const anchor = document.createElement('a');
-          const url = new URL(link.href);
-          anchor.href = link.href;
-          anchor.textContent = url.pathname.split('/').pop().split('.')[0];
-          
-          const lineBreak = document.createElement('br');
-          
-          menu.appendChild(anchor);
-          menu.appendChild(lineBreak);
-        });
-      })
-      .catch(error => {
-        console.error('Erro ao obter a lista de arquivos:', error);
-      });
+        fetch(pasta)
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
 
-    function toggleMenuPanel() {
-      menuPanel.style.display = menuPanel.style.display === 'none' ? 'block' : 'none';
-    }
-  </script>
-</body>
+                const links = doc.querySelectorAll('a[href$=".html"]');
+
+                links.forEach(link => {
+                    const anchor = document.createElement('a');
+                    const url = new URL(link.href);
+                    anchor.href = link.href;
+                    anchor.textContent = url.pathname.split('/').pop().split('.')[0];
+
+                    // Abrir outra página no link clicado
+                    anchor.addEventListener('click', (event) => {
+                        if (!menuPanel.contains(event.target)) {
+                            event.preventDefault();
+                            window.location.href = anchor.href; // Abre a nova página
+                        }
+                    });
+
+                    menu.appendChild(anchor);
+                    menu.appendChild(document.createElement('br')); // Adiciona uma quebra de linha após cada link
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao obter a lista de arquivos:', error);
+            });
+
+        function toggleMenuPanel() {
+            menuPanel.style.display = menuPanel.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</html>
