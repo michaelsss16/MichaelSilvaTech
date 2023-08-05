@@ -5,81 +5,81 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Aulas de canto - Área do Aluno</title>
+	<title>Área do aluno</title>
 	<link rel="stylesheet" href="/style/main.css">
 	<script src="/js/util.js"></script>
+
 </head>
 
 <body>
 	<iframe src="/models/menuCanto.html" frameborder="0"></iframe>
+	<h1>Área do aluno</h1>
 
-	<h1>Área do Aluno</h1>
+	<details>
+		<summary>
+			<h2>Aquecimento vocal</h2>
+		</summary>
+		<p>
 
-	<div class="section">
-		<div class="section-heading" onclick="toggleSection(1)">
-			<h2>Materiais de Aquecimento Vocal</h2>
-		</div>
-		<div class="section-content" id="section-1">
-			<div class="audio-file">
-				<h3>Escala maior - 80 BPM</h3>
-				<audio src="/audio/Aquecimento - 80 bpm.mp3" controls loop>
-					Seu navegador não suporta a reprodução de áudio.
-				</audio>
-			</div>
-			<div class="audio-file">
-				<h3>Escala maior - 120 BPM</h3>
-				<audio src="/audio/Aquecimento - 120 bpm.mp3" controls loop>
-					Seu navegador não suporta a reprodução de áudio.
-				</audio>
-			</div>
+			Exercícios para aquecimento vocal. <br>
+			Instruções: <br>
+			- Duração de dez minutos;<br>
+			- Vibração de lábios, lingua, hamming ou utilização de vogais.<br>
+		</p>
 
-			<div class="audio-file">
-				<h3>Escala maior - 200 BPM</h3>
-				<audio src="/audio/Aquecimento - 200 bpm.mp3" controls loop>
-					Seu navegador não suporta a reprodução de áudio.
-				</audio>
-			</div>
-			<!-- Adicione mais arquivos de áudio para aquecimento vocal -->
-		</div>
-	</div>
+		<br>
+		<h3> Escala maior - 80 BPM</h3>
+		<audio controls>
+			<source src="/audios/em80.mp3" type="audio/mpeg">
+		</audio>
+		<br>
+		<h3> Escala maior - 120 BPM</h3>
+		<audio controls>
+			<source src="/audios/em120.mp3" type="audio/mpeg">
+		</audio>
+		<br>
+		<h3> Escala maior - 200 BPM</h3>
+		<audio controls>
+			<source src="/audios/em200.mp3" type="audio/mpeg">
+		</audio>
 
-	<div class="section">
-		<div class="section-heading" onclick="toggleSection(2)">
-			Materiais de Técnica Vocal
-		</div>
-		<div class="section-content" id="section-2">
-			<div class="audio-file">
-				<a href="canto_tecnica1.mp3" download>Exercício 1</a>
-			</div>
-			<div class="audio-file">
-				<a href="canto_tecnica2.mp3" download>Exercício 2</a>
-			</div>
-			<!-- Adicione mais arquivos de áudio para técnica vocal -->
-		</div>
-	</div>
+		<br>
+		<h3> Escala cromática - 100 BPM</h3>
+		<audio controls>
+			<source src="/audios/cc100.mp3" type="audio/mpeg">
+		</audio>
+		<br>
+		<h3> Escala cromática - 150 BPM</h3>
+		<audio controls>
+			<source src="/audios/cc150.mp3" type="audio/mpeg">
+		</audio>
+		<br>
+		<h3> Escala cromática - 200 BPM</h3>
+		<audio controls>
+			<source src="/audios/cc200.mp3" type="audio/mpeg">
+		</audio>
+		<br>
+		<h3> Escala cromática - 250 BPM</h3>
+		<audio controls>
+			<source src="/audios/cc250.mp3" type="audio/mpeg">
+		</audio>
 
-	<div class="section">
-		<div class="section-heading" onclick="toggleSection(3)">
-			Materiais de Repertório
-		</div>
-		<div class="section-content" id="section-3">
-			<div class="audio-file">
-				<a href="canto_repertorio1.mp3" download>Exemplo 1</a>
-			</div>
-			<div class="audio-file">
-				<a href="canto_repertorio2.mp3" download>Exemplo 2</a>
-			</div>
-			<!-- Adicione mais arquivos de áudio para repertório -->
-		</div>
-	</div>
-
-	<script>
-		// Função para alternar a exibição da seção
-		function toggleSection(sectionId) {
-			const section = document.getElementById(`section-${sectionId}`);
-			section.style.display = section.style.display === 'none' ? 'block' : 'none';
-		}
-	</script>
+		<br>
+		<h3> Tríades - 100 BPM</h3>
+		<audio controls>
+			<source src="/audios/tr100.mp3" type="audio/mpeg">
+		</audio>
+		<br>
+		<h3> Tríades - 150 BPM</h3>
+		<audio controls>
+			<source src="/audios/tr150.mp3" type="audio/mpeg">
+		</audio>
+		<br>
+		<h3> Tríades - 200 BPM</h3>
+		<audio controls>
+			<source src="/audios/tr200.mp3" type="audio/mpeg">
+		</audio>
+	</details>
 
 </body>
 

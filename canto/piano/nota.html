@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Piano Virtual</title>
+	<link rel="stylesheet" href="/style/main.css">
+	<script src="/js/util.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/tone@latest"></script>
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	</style>
+</head>
+
+<body>
+	<iframe src="/models/menuCanto.html" frameborder="0"></iframe>
+	<h1>Piano Virtual - Notas</h1>
+
+	<div class="container">
+		<button onclick="tocarNotaAleatoria()">Tocar Nota Aleatória</button>
+		<button onclick="tocarNotaRepetida()">Repetir Nota</button>
+		<button onclick="exibirUltimaNota()">Mostrar Última Nota Tocada</button>
+
+		<div>
+			<label for="sliderDuration">Duração da Nota:</label>
+			<input type="range" id="sliderDuration" min="0.5" max="10" step="0.5" value="2">
+			<span id="sliderDurationValue"></span> segundos
+		</div>
+
+		<div>
+			<label for="sliderRepeat">Repetições:</label>
+			<input type="range" id="sliderRepeat" min="1" max="10" step="1" value="1">
+			<span id="sliderRepeatValue"></span> vezes
+		</div>
+
+		<div>
+			<label for="sliderOctaves">Oitavas:</label>
+			<input type="range" id="sliderOctaves" min="1" max="7" step="1" value="1">
+			<span id="sliderOctavesValue"></span>
+		</div>
+	</div>
+
+	<script>
+		var synth = new Tone.Synth({
+			oscillator: {
+				type: 'triangle'
+			},
+			envelope: {
+				attack: 0.1,
+				decay: 0.2,
+				sustain: 0.4,
+				release: 0.8
+			}
+		}).toDestination();
+
+		var ultimaNotaTocada = null;
+		var notaRepetida = null;
+
+		var nomesNotas = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+
+		function tocarNotaAleatoria() {
+			var duracao = parseFloat(document.getElementById("sliderDuration").value) * 1000;
+			var repeticoes = parseInt(document.getElementById("sliderRepeat").value, 10);
+			var duracaoSilencio = duracao;
+
+			var indiceNotaAleatoria = Math.floor(Math.random() * nomesNotas.length);
+
+			var numOitavas = parseInt(document.getElementById("sliderOctaves").value, 10);
+			var primeiraOitava = Math.max(1, 4 - Math.floor(numOitavas / 2));
+			var ultimaOitava = primeiraOitava + numOitavas - 1;
+
+			var oitavaAleatoria = Math.floor(Math.random() * (ultimaOitava - primeiraOitava + 1)) + primeiraOitava;
+			var frequenciaAleatoria = Tone.Frequency(nomesNotas[indiceNotaAleatoria] + oitavaAleatoria).toFrequency();
+
+			var contadorRepeticoes = 0;
+
+			function playNote() {
+				synth.triggerAttackRelease(
+					nomesNotas[indiceNotaAleatoria] + oitavaAleatoria,
+					duracao / 1000
+				);
+				ultimaNotaTocada = "Nota: " + nomesNotas[indiceNotaAleatoria] + ", Oitava: " + oitavaAleatoria;
+				notaRepetida = ultimaNotaTocada;
+				contadorRepeticoes++;
+				if (contadorRepeticoes < repeticoes) {
+					setTimeout(playNote, duracaoSilencio * 2);
+				}
+			}
+
+			playNote();
+		}
+
+		function tocarNotaRepetida() {
+			if (notaRepetida) {
+				var duracao = parseFloat(document.getElementById("sliderDuration").value) * 1000;
+				var repeticoes = 0;
+				var duracaoSilencio = 1000;;
+
+				var ultimaNota = notaRepetida.split(':')[1].trim();
+				var ultimaOitava = parseInt(ultimaNota.split(',')[1].trim(), 10);
+				var ultimaNotaIndex = nomesNotas.indexOf(ultimaNota.split(',')[0].trim());
+
+				var contadorRepeticoes = 0;
+
+				function playNote() {
+					synth.triggerAttackRelease(
+						ultimaNota + ultimaOitava,
+						1000
+					);
+					contadorRepeticoes++;
+					if (contadorRepeticoes < repeticoes) {
+						setTimeout(playNote, duracaoSilencio * 2);
+					}
+				}
+
+				playNote();
+			} else {
+				alert("Nenhuma nota foi tocada ainda.");
+			}
+		}
+
+		function exibirUltimaNota() {
+			if (ultimaNotaTocada) {
+				alert(ultimaNotaTocada);
+			} else {
+				alert("Nenhuma nota foi tocada ainda.");
+			}
+		}
+
+		document.getElementById("sliderDuration").addEventListener("input", function () {
+			document.getElementById("sliderDurationValue").textContent = this.value;
+		});
+
+		document.getElementById("sliderRepeat").addEventListener("input", function () {
+			document.getElementById("sliderRepeatValue").textContent = this.value;
+		});
+
+		document.getElementById("sliderOctaves").addEventListener("input", function () {
+			document.getElementById("sliderOctavesValue").textContent = this.value;
+		});
+
+		// Set initial value for the Octaves slider
+		document.getElementById("sliderOctaves").value = 1;
+		document.getElementById("sliderOctavesValue").textContent = 1;
+	</script>
+</body>
+
+</html>
