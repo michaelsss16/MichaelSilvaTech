@@ -45,9 +45,7 @@
 		var synth = new Tone.PolySynth().toDestination();
 
 		function playPianoChord(notes) {
-			var chord = notes.slice(0, 3); // Obter somente as três primeiras notas
-
-			synth.triggerAttackRelease(chord, "4n"); // "4n" representa a duração de uma semínima
+			synth.triggerAttackRelease(notes, "4n"); // "4n" representa a duração de uma semínima
 		}
 	</script>
 </body>
