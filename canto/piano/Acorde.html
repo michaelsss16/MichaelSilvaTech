@@ -2,61 +2,60 @@
 <html>
 
 <head>
-    <title>Gerador de Acordes de Piano</title>
-    <link rel="stylesheet" href="/style/main.css">
-    <script src="/js/util.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tone@latest"></script>
-    <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 50px;
-        }
-
-        .chord-button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 18px;
-        }
-    </style>
+	<title>Gerador de Acordes de Piano</title>
+	<link rel="stylesheet" href="/style/main.css">
+	<script src="/js/util.js"></script>
+	<script src="/js/Music.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/tone@latest"></script>
 </head>
 
 <body>
-    <iframe src="/models/menuCanto.html" frameborder="0"></iframe>
-    <h1>Gerador de Acordes de Piano</h1>
+	<iframe src="/models/menuCanto.html" frameborder="0"></iframe>
 
-    <input type="range" id="Repeticoes" min="0" max="10000" value="0" step="1">
-    <div class="container">
-        <button class="chord-button" onclick="IniciarReproducao(['C3', 'e3', 'g3', 'c4'])">C</button>
-        <button class="chord-button" onclick="ReproduzirAcorde(['C#3', 'E#3', 'G#3', 'C#4'])">C#</button>
-        <!-- Resto dos botões -->
-    </div>
+	<h1>Gerador de Acordes de Piano</h1>
 
-    <script>
-        var synth = new Tone.PolySynth().toDestination();
-        var slider = document.getElementById("Repeticoes");
+	<input type="range" id="Repeticoes" min="1" max="10" value="1" step="1">
+	<br>
+	<input type="range" id="Delay" min="0" max="10000" value="0" step="500">
+	<br>
 
-        slider.addEventListener("input", function() {
-            // Atualize o valor do sliderValue quando o slider for alterado
-            var sliderValue = slider.value;
-        });
+	<button onclick="IniciarReproducao('C')">C</button>
+	<button onclick="IniciarReproducao('Db')">C#</button>
+	<button onclick="IniciarReproducao('D')">D</button>
+	<button onclick="IniciarReproducao('Eb')">D#</button>
+	<button onclick="IniciarReproducao('E')">E</button>
+	<button onclick="IniciarReproducao('F')">F</button>
+	<button onclick="IniciarReproducao('Gb')">F#</button>
+	<button onclick="IniciarReproducao('G')">G</button>
+	<button onclick="IniciarReproducao('Ab')">G#</button>
+	<button onclick="IniciarReproducao('A')">A</button>
+	<button onclick="IniciarReproducao('Bb')">A#</button>
+	<button onclick="IniciarReproducao('B')">B</button>
 
-        async function IniciarReproducao(acorde) {
-            var sliderValue = slider.value; // Obtenha o valor do slider
-            ReproduzirAcorde(acorde);
-            await sleep(sliderValue);
-            ReproduzirAcorde(acorde);
-        }
 
-        function ReproduzirAcorde(notes) {
-            synth.triggerAttackRelease(notes, "4n");
-        }
+	<script>
+		var synth = new Tone.PolySynth().toDestination();
+		var SliderRepeticoes = document.getElementById("Repeticoes");
+		var SliderDelay = document.getElementById("Delay");
 
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-    </script>
+		SliderRepeticoes.addEventListener("input", function () { });
+		SliderDelay.addEventListener("input", function () { });
+
+		async function IniciarReproducao(acorde) {
+			var Repeticoes = SliderRepeticoes.value;
+			var Delay = SliderDelay.value;
+			for (let i = 0; i < Repeticoes; i++) {
+				ReproduzirAcorde(acorde);
+				await sleep(Delay);
+			}
+		}
+
+		function ReproduzirAcorde(Acorde) {
+			var notas = ObterAcorde(Acorde);
+			synth.triggerAttackRelease(notas, "4n");
+		}
+
+	</script>
 </body>
 
 </html>
