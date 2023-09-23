@@ -26,8 +26,19 @@ p {
     color: #666;
 
 }
+.produto-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around 
+}  
+@media screen and (max-width: 768px){
+    .produto-container{
+        width: 100%;
+        flex-direction: column;
+    }
+}
 body{
-    background: -webkit-repeating-linear-gradient(-45deg, #71b7e6, #69a6ce, #b98acc, #ee8176, #b98acc, #69a6ce, #9b59b6);
+    background: -webkit-repeating-linear-gradient(-45deg, #71b7e6, #69a6ce, #ab6ac5, #9e43a7, #791d7c, #69a6ce, #913bb3);
     height: 100vh;
     background-size: 400%;
 }
@@ -37,6 +48,7 @@ body{
     left: 17%;
     right: 17%;
     bottom: 10%;
+    border-radius: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +71,7 @@ body{
     top: 0;
     left: 0;
     right: 0;
-    background: -webkit-repeating-linear-gradient(-45deg, #71b7e6, #69a6ce, #b98acc, #ee8176, #b98acc, #69a6ce, #9b59b6);
+    background: -webkit-repeating-linear-gradient(-45deg, #71b7e6, #69a6ce, #ab6ac5, #9e43a7, #791d7c, #69a6ce, #913bb3);
     background-size: 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
