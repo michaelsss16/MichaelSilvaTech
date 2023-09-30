@@ -5,50 +5,44 @@
 	<title>Gerador de Acordes de Piano</title>
 	<link rel="stylesheet" href="/style/main.css">
 	<script src="/js/util.js"></script>
+	<script src="/js/Music.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tone@latest"></script>
-	<style>
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 50px;
-		}
-
-		.chord-button {
-			margin-top: 10px;
-			padding: 10px 20px;
-			font-size: 18px;
-		}
-	</style>
 </head>
 
 <body>
 	<iframe src="/models/menuCanto.html" frameborder="0"></iframe>
+
 	<h1>Gerador de Acordes de Piano</h1>
 
-	<div class="container">
-		<button class="chord-button" onclick="playPianoChord(['C3', 'E3', 'G3'])">C</button>
-		<button class="chord-button" onclick="playPianoChord(['C#3', 'E#3', 'G#3', 'C#4'])">C#</button>
-		<button class="chord-button" onclick="playPianoChord(['D3', 'F#3', 'A3', 'D4'])">D</button>
-		<button class="chord-button" onclick="playPianoChord(['D#3', 'G3', 'A#3', 'D#4'])">D#</button>
-		<button class="chord-button" onclick="playPianoChord(['E3', 'G#3', 'B3', 'E4'])">E</button>
-		<button class="chord-button" onclick="playPianoChord(['F3', 'A3', 'C4', 'F4'])">F</button>
-		<button class="chord-button" onclick="playPianoChord(['F#3', 'A#3', 'C#4', 'F#4'])">F#</button>
-		<button class="chord-button" onclick="playPianoChord(['G3', 'B3', 'D4', 'G4'])">G</button>
-		<button class="chord-button" onclick="playPianoChord(['G#3', 'C4', 'D#4', 'G#4'])">G#</button>
-		<button class="chord-button" onclick="playPianoChord(['A3', 'C#4', 'E4', 'A4'])">A</button>
-		<button class="chord-button" onclick="playPianoChord(['A#3', 'D4', 'F4', 'A#4'])">A#</button>
-		<button class="chord-button" onclick="playPianoChord(['B3', 'D#4', 'F#4', 'B4'])">B</button>
-	</div>
+	<input type="range" id="Repeticoes" aria-label="Repetições" min="1" max="10" value="1" step="1">
+	<br>
+	<input type="range" id="Delay" aria-label= "Tenpo de intervalo" min="0" max="10000" value="0" step="500">
+
+	<br>
+	<hr> 
+
+	<button onclick="IniciarReproducao('C')">C</button>
+	<button onclick="IniciarReproducao('Db')">C#</button>
+	<button onclick="IniciarReproducao('D')">D</button>
+	<button onclick="IniciarReproducao('Eb')">D#</button>
+	<button onclick="IniciarReproducao('E')">E</button>
+	<button onclick="IniciarReproducao('F')">F</button>
+	<button onclick="IniciarReproducao('Gb')">F#</button>
+	<button onclick="IniciarReproducao('G')">G</button>
+	<button onclick="IniciarReproducao('Ab')">G#</button>
+	<button onclick="IniciarReproducao('A')">A</button>
+	<button onclick="IniciarReproducao('Bb')">A#</button>
+	<button onclick="IniciarReproducao('B')">B</button>
+<br> 
 
 	<script>
-		var synth = new Tone.PolySynth().toDestination();
+		const synth  = new Tone.PolySynth(Tone.AMSynth).toDestination();
+		var SliderRepeticoes = document.getElementById("Repeticoes");
+		var SliderDelay = document.getElementById("Delay");
 
-		function playPianoChord(notes) {
-			var chord = notes.slice(0, 3); // Obter somente as três primeiras notas
-
-			synth.triggerAttackRelease(chord, "4n"); // "4n" representa a duração de uma semínima
-		}
+		SliderRepeticoes.addEventListener("input", function () { });
+		SliderDelay.addEventListener("input", function () { });
+synth.volume.value = 0;
 	</script>
 </body>
 
