@@ -16,9 +16,10 @@
 
 	<input type="range" id="Repeticoes" aria-label="Repetições" min="1" max="10" value="1" step="1">
 	<br>
-	<input type="range" id="Delay" aria-label= "Tenpo de intervalo" min="0" max="10000" value="0" step="500">
-
+	<input type="range" id="Delay" aria-label= "Tenpo de intervalo" min="1" max="10" value="1" step="1">
 	<br>
+	<input type="range" id="Volume" aria-label= "Volume" min="-5" max="5" value="0" step="1">
+<br> 
 	<hr> 
 
 	<button onclick="IniciarReproducao('C')">C</button>
@@ -39,10 +40,13 @@
 		const synth  = new Tone.PolySynth(Tone.AMSynth).toDestination();
 		var SliderRepeticoes = document.getElementById("Repeticoes");
 		var SliderDelay = document.getElementById("Delay");
+		var SliderVolume = document.getElementById("Volume");
 
 		SliderRepeticoes.addEventListener("input", function () { });
 		SliderDelay.addEventListener("input", function () { });
-synth.volume.value = 0;
+		SliderVolume.addEventListener("input", function () { 
+			synth.volume.value = parseInt(SliderVolume.value);
+		});
 	</script>
 </body>
 

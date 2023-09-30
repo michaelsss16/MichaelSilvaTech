@@ -23,7 +23,7 @@ function ObterAcorde(Acorde) {
 
 async function IniciarReproducao(acorde) {
 	var Repeticoes = SliderRepeticoes.value;
-	var Delay = SliderDelay.value;
+	var Delay = SliderDelay.value * 1000;
 	for (let i = 0; i < Repeticoes; i++) {
 		ReproduzirAcorde(acorde);
 		await sleep(Delay);
@@ -32,5 +32,5 @@ async function IniciarReproducao(acorde) {
 
 function ReproduzirAcorde(Acorde) {
 	var notas = ObterAcorde(Acorde);
-	synth.triggerAttackRelease(notas,"2m" );
+	synth.triggerAttackRelease(notas, [0.7] );
 }
