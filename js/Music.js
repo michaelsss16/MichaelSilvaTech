@@ -32,5 +32,13 @@ async function IniciarReproducao(acorde) {
 
 function ReproduzirAcorde(Acorde) {
 	var notas = ObterAcorde(Acorde);
-	synth.triggerAttackRelease(notas, [0.7] );
+	synth.triggerAttackRelease(notas, [0.95] );
+}
+
+function GerarAcordeAleatorio()
+{
+	var chaves = Object.keys(ACORDES);
+	var indiceAleatorio =   Math.floor(Math.random()*chaves.length);
+	var acordeAleatorio =  chaves[indiceAleatorio];
+	IniciarReproducao(acordeAleatorio );
 }
