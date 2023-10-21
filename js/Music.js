@@ -52,4 +52,5 @@ function GerarAcordeAleatorio() {
 	var indiceAleatorio = Math.floor(Math.random() * chaves.length);
 	var acordeAleatorio = chaves[indiceAleatorio];
 	IniciarReproducao(acordeAleatorio);
+	return acordeAleatorio;
 }
