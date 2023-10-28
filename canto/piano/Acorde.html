@@ -58,7 +58,10 @@
 	<br>
 
 	<script>
-		const synth = new Tone.PolySynth(Tone.AMSynth).toDestination();
+		const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
+// Cria um efeito de reverb
+const reverb = new Tone.Reverb();
+
 		var SliderRepeticoes = document.getElementById("Repeticoes");
 		var SliderDelay = document.getElementById("Delay");
 		var SliderVolume = document.getElementById("Volume");
