@@ -24,8 +24,12 @@ p {
     font-size: 16px;
     line-height: 1.5;
     color: #666;
-
 }
+
+a {
+    color: #0000ff;
+  }
+  
 .produto-container{
     display: flex;
     width: 100%;
@@ -38,7 +42,7 @@ p {
     }
 }
 body{
-    background: -webkit-repeating-linear-gradient(-45deg, #71b7e6, #69a6ce, #ab6ac5, #9e43a7, #791d7c, #69a6ce, #913bb3);
+    background-image: -webkit-repeating-linear-gradient(-45deg, #71b7e6, #69a6ce, #ab6ac5, #9e43a7, #791d7c, #69a6ce, #913bb3);
     height: 100vh;
     background-size: 400%;
 }
@@ -137,4 +141,174 @@ body{
 .content .btns a:hover{
     color: #fff;
     background: #69a6ce;
+}
+.aluno{
+    position: absolute;
+    background-color: #fff;
+    top: 10%;
+    left: 17%;
+    right: 17%;
+    bottom: 10%;
+    border-radius: 25px;
+}
+.text-aluno{
+    text-align: center;
+}
+.text-aluno h1{
+    font-size: 7em;
+    line-height: 1,5em;
+    position: relative;
+}
+.text-aluno h1:after{
+    position: absolute;
+    content: attr(data-text);
+    top: 0;
+    left: 0;
+    right: 0;
+    background: -webkit-repeating-linear-gradient(-45deg, #71b7e6, #69a6ce, #ab6ac5, #9e43a7, #791d7c, #69a6ce, #913bb3);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(255, 255,255,0.25);
+    animation: animate 10s ease-in-out infinite;
+}
+@keyframes animate{
+    0%{
+    background-position: 0 0;
+    }
+    25%{
+        background-position: 100% 0;
+        }
+        50%{
+            background-position: 100% 100%;
+            }
+            75%{
+                background-position: 0 100%;
+                }
+                100%{
+                    background-position: 0 0;
+                    }
+                }
+.text-aluno .botão-aluno{
+margin: 25px 0;
+display: inline-flex;
+}
+.text-aluno .botão-aluno a{
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    border: 2px solid #69a6ce;
+    color: #69a6ce;
+    font-weight: 500;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+.text-aluno .botão-aluno a:hover{
+    color: #fff;
+    background: #69a6ce;
+}
+.Dica{
+    position: relative;
+    margin: 30px;
+    display: inline-block;
+}
+.Dica:hover .DicaTexto{
+    visibility: visible;
+}
+.DicaTexto{
+    position: absolute;
+    visibility: hidden;
+    font-size: 13px;
+    width: 150px;
+    background: #69a6ce;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    bottom: 115%;
+    left: 20px;
+}
+.DicaTexto:after{
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    margin-left: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #69a6ce transparent transparent transparent;
+}
+.Dica1{
+    position: relative;
+    margin: 30px;
+    display: inline-block;
+}
+.Dica1:hover .DicaTexto1{
+    visibility: visible;
+}
+.DicaTexto1{
+    position: absolute;
+    visibility: hidden;
+    font-size: 13px;
+    width: 150px;
+    background: #69a6ce;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    bottom: 115%;
+    left: 20px;
+}
+.DicaTexto1:after{
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 41%;
+    margin-left: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #69a6ce transparent transparent transparent;
+}
+.Dica2{
+    position: relative;
+    margin: 30px;
+    display: inline-block;
+}
+.Dica2:hover .DicaTexto2{
+    visibility: visible;
+}
+.DicaTexto2{
+    position: absolute;
+    visibility: hidden;
+    font-size: 13px;
+    width: 150px;
+    background: #69a6ce;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    bottom: 115%;
+    left: 20px;
+}
+.DicaTexto2:after{
+    content: " ";
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    margin-left: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #69a6ce transparent transparent transparent
+}
+.texto-leitor{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }
