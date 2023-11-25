@@ -302,13 +302,3 @@ display: inline-flex;
     border-style: solid;
     border-color: #69a6ce transparent transparent transparent
 }
-.texto-leitor{
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
