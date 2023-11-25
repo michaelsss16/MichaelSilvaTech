@@ -209,3 +209,96 @@ display: inline-flex;
     color: #fff;
     background: #69a6ce;
 }
+.Dica{
+    position: relative;
+    margin: 30px;
+    display: inline-block;
+}
+.Dica:hover .DicaTexto{
+    visibility: visible;
+}
+.DicaTexto{
+    position: absolute;
+    visibility: hidden;
+    font-size: 13px;
+    width: 150px;
+    background: #69a6ce;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    bottom: 115%;
+    left: 20px;
+}
+.DicaTexto:after{
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    margin-left: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #69a6ce transparent transparent transparent;
+}
+.Dica1{
+    position: relative;
+    margin: 30px;
+    display: inline-block;
+}
+.Dica1:hover .DicaTexto1{
+    visibility: visible;
+}
+.DicaTexto1{
+    position: absolute;
+    visibility: hidden;
+    font-size: 13px;
+    width: 150px;
+    background: #69a6ce;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    bottom: 115%;
+    left: 20px;
+}
+.DicaTexto1:after{
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    margin-left: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #69a6ce transparent transparent transparent;
+}
+.Dica2{
+    position: relative;
+    margin: 30px;
+    display: inline-block;
+}
+.Dica2:hover .DicaTexto2{
+    visibility: visible;
+}
+.DicaTexto2{
+    position: absolute;
+    visibility: hidden;
+    font-size: 13px;
+    width: 150px;
+    background: #69a6ce;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    bottom: 115%;
+    left: 20px;
+}
+.DicaTexto2:after{
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    margin-left: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #69a6ce transparent transparent transparent;
+}
