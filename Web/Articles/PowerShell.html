@@ -1,103 +1,229 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 	<title>Power Shell com NVDA</title>
-	<meta name=""keywords" content="acessibilidade, programação, deficiente, cego, youtube, Powerr Shell, NVDA, CLI, Prompt">
-	<meta name=""description" content="Dicas e truques para utilizar o Windows Power Shell com o leitor de tela NVDA.">
+	<meta name="" keywords"
+		content="acessibilidade, programação, deficiente, cego, youtube, Powerr Shell, NVDA, CLI, Prompt">
+	<meta name="" description" content="Dicas e truques para utilizar o Windows Power Shell com o leitor de tela NVDA.">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name=""author" content="Michael Silva">
+	<meta name="" author" content="Michael Silva">
 </head>
+
 <body>
 	<iframe src="/Web/Models/Header.html" frameborder="0"></iframe>
 	<article>
 		<h1>Power Shell: utilização com o leitor de tela NVDA</h1>
-		<p>Nesse artigo você aprenderá sobre o que é o Power Shell, como utilizá-lo com o leitor de tela NVDA, de forma totalmente acessível, além  dos seus primeiros comandos para dominar essa ferramenta.</p>
+		<p>Nesse artigo você aprenderá sobre o que é o Power Shell, como utilizá-lo com o leitor de tela NVDA, de forma
+			totalmente acessível, além dos seus primeiros comandos para dominar essa ferramenta.</p>
 
 		<h2>Introdução</h2>
-		<p>Segundo a definição da própria <a href = "https://learn.microsoft.com/pt-br/powershell/scripting/overview?view=powershell-7.3">Microsoft</a>, o Power Shell é “uma solução de automação de tarefas multiplataforma que consiste em um shell de linha de comando, em uma linguagem de script e uma estrutura de gerenciamento de configuração.”. </p>
-		<p>E você deve estar se perguntando agora, o que é um Shell, no final das contas?</p> 
-		<p>	“Em computação, um shell (em português, casca ou concha) é uma interface de usuário para acessar os serviços de um sistema operacional”. <a href="https://pt.wikipedia.org/wiki/Shell_(computa%C3%A7%C3%A3o)#:~:text=Na%20inform%C3%A1tica%20o%20Shell%2C%20de,o%20sistema%20operacional%20(kernel).">Wikipedia</a></p>
-		<p>Com o Power Shell é possível realizar todas as tarefas comumente realizadas em um CLI (Command Line interface), que são os shells de texto, como navegação e manipulação de diretórios, definição de configurações e execução de scripts, bem como quaisquer outras manipulações do sistema operacional.</p>
-		<p>Com o CLI desenvolvido pela Microsoft temos diversas funcionalidades como armazenamento de histórico de comandos, autocomplete e, além de tudo, Possuir acessibilidade para usuários de leitores de tela, como o NVDA.</p>
-		<p>O Windows Power Shell não precisa ser instalado no computador, uma vez que faz parte dos aplicativos instalados juntamente com o Windows 10. Em adicional, pode ser instalado o Windows Terminal, que adiciona algumas funcionalidades durante o uso do Power Shell, ponto este que será melhor abordado em um capítulo posterior. Em adicional, não se limita ao Windows, já que pode ser instalado nos sistemas operacionais Mac e Linux.</p>
+		<p>Segundo a definição da própria <a
+				href="https://learn.microsoft.com/pt-br/powershell/scripting/overview?view=powershell-7.3">Microsoft</a>,
+			o Power Shell é “uma solução de automação de tarefas multiplataforma que consiste em um shell de linha de
+			comando, em uma linguagem de script e uma estrutura de gerenciamento de configuração.”. </p>
+		<p>E você deve estar se perguntando agora, o que é um Shell, no final das contas?</p>
+		<p> “Em computação, um shell (em português, casca ou concha) é uma interface de usuário para acessar os serviços
+			de um sistema operacional”. <a
+				href="https://pt.wikipedia.org/wiki/Shell_(computa%C3%A7%C3%A3o)#:~:text=Na%20inform%C3%A1tica%20o%20Shell%2C%20de,o%20sistema%20operacional%20(kernel).">Wikipedia</a>
+		</p>
+		<p>Com o Power Shell é possível realizar todas as tarefas comumente realizadas em um CLI (Command Line
+			interface), que são os shells de texto, como navegação e manipulação de diretórios, definição de
+			configurações e execução de scripts, bem como quaisquer outras manipulações do sistema operacional.</p>
+		<p>Com o CLI desenvolvido pela Microsoft temos diversas funcionalidades como armazenamento de histórico de
+			comandos, autocomplete e, além de tudo, Possuir acessibilidade para usuários de leitores de tela, como o
+			NVDA.</p>
+		<p>O Windows Power Shell não precisa ser instalado no computador, uma vez que faz parte dos aplicativos
+			instalados juntamente com o Windows 10. Em adicional, pode ser instalado o Windows Terminal, que adiciona
+			algumas funcionalidades durante o uso do Power Shell, ponto este que será melhor abordado em um capítulo
+			posterior. Em adicional, não se limita ao Windows, já que pode ser instalado nos sistemas operacionais Mac e
+			Linux.</p>
 
 		<h2>A interface</h2>
-		<p>Para inicializar o Power Shell basta pressionar a tecla Windows, ou as teclas Ctrl+ Esc, e digitar as iniciais do programa. Assim que a lista de correspondências for carregada basta clicar no referente ao desejado.</p>
-		<p>Assim que o programa é iniciado uma janela será aberta, indicando as informações iniciais, além do diretório padrão, que é referente a pasta do usuário atual. </p>
-		<p>Observação: utilizarei aqui as palavras pasta e diretório como sinônimos.</p> 
-		<p>	Os diretórios nada mais são que os locais onde agrupamos os arquivos, de modo a deixa-los organizados na memória do computador.</p>
-		<p>De modo ilustrativo, o Power shell  é uma janela de fundo preto com a lista de comandos executados em tonalidade branca, por padrão. Como todo aplicativo do Windows, possui a barra de sistema, acessada pelo atalho Alt + espaço, contendo as opções de minimizar, ampliar e fechar a janela, além de algumas adicionais, apresentando propriedades específicas do programa.</p>
-		<p>Dica: manter a janela ampliada pode facilitar a leitura do histórico de comandos, já que haverá um menor número de quebras de linhas e, consequentemente, menor número de interrupções na leitura ou necessidade de atuação na navegação.</p>
+		<p>Para inicializar o Power Shell basta pressionar a tecla Windows, ou as teclas Ctrl+ Esc, e digitar as
+			iniciais do programa. Assim que a lista de correspondências for carregada basta clicar no referente ao
+			desejado.</p>
+		<p>Assim que o programa é iniciado uma janela será aberta, indicando as informações iniciais, além do diretório
+			padrão, que é referente a pasta do usuário atual. </p>
+		<p>Observação: utilizarei aqui as palavras pasta e diretório como sinônimos.</p>
+		<p> Os diretórios nada mais são que os locais onde agrupamos os arquivos, de modo a deixa-los organizados na
+			memória do computador.</p>
+		<p>De modo ilustrativo, o Power shell é uma janela de fundo preto com a lista de comandos executados em
+			tonalidade branca, por padrão. Como todo aplicativo do Windows, possui a barra de sistema, acessada pelo
+			atalho Alt + espaço, contendo as opções de minimizar, ampliar e fechar a janela, além de algumas adicionais,
+			apresentando propriedades específicas do programa.</p>
+		<p>Dica: manter a janela ampliada pode facilitar a leitura do histórico de comandos, já que haverá um menor
+			número de quebras de linhas e, consequentemente, menor número de interrupções na leitura ou necessidade de
+			atuação na navegação.</p>
 		<p>Ao se abrir o Power shell, as seguintes informações serão lidas:</p>
 		<p>“Windows PowerShell
-		Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+			Copyright (C) Microsoft Corporation. Todos os direitos reservados.
 
-		Experimente a nova plataforma cruzada PowerShell https://aka.ms/pscore6
+			Experimente a nova plataforma cruzada PowerShell https://aka.ms/pscore6
 
-		Aviso: o PowerShell detectou que você talvez esteja usando um leitor de tela e tenha desabilitado o PSReadLine para fins
-		 de compatibilidade. Se desejar reabilitá-lo, execute 'Import-Module PSReadLine'.
-				<br>
-		PS C:\Users\Windows10>”<br></p>
+			Aviso: o PowerShell detectou que você talvez esteja usando um leitor de tela e tenha desabilitado o
+			PSReadLine para fins
+			de compatibilidade. Se desejar reabilitá-lo, execute 'Import-Module PSReadLine'.
+			<br>
+			PS C:\Users\Windows10>”<br>
+		</p>
 
-		<p>O primeiro bloco de texto apresenta as informações de inicialização do programa e, em especial, a última linha lida se refere ao diretório atual, que é o padrão para o usuário ativo no Windows.</p>
-		<p>Para obter todos os detalhes, é imprescindível, na maioria dos casos, o uso dos sinais de pontuação, utilizados para delimitar as pastas, textos e métodos. Para isso, é possível utilizar o comando NVDA + p, alternando a granularidade da leitura de pontuações.</p>
-		<p>Toda ação executada se limita a linha de comando, que pode ser lida pressionando a tecla seta para baixo. O diretório atual será lido seguido pelo texto que se encontra na linha de comando. A partir daqui a manipulação do texto segue os princípios básicos definidos pelo leitor de tela.</p>
-		<p>Dica: Ao utilizar o comando de deleção, por uso do Backspace ou delete, conjunto a tecla Ctrl, para atingir palavras, espaços serão considerados como palavras individuais. Ou seja, ao escrever uma palavra seguida de um espaço, para excluí-la será necessário realizar o comando Ctrl +Backspace duas vezes.</p>
+		<p>O primeiro bloco de texto apresenta as informações de inicialização do programa e, em especial, a última
+			linha lida se refere ao diretório atual, que é o padrão para o usuário ativo no Windows.</p>
+		<p>Para obter todos os detalhes, é imprescindível, na maioria dos casos, o uso dos sinais de pontuação,
+			utilizados para delimitar as pastas, textos e métodos. Para isso, é possível utilizar o comando NVDA + p,
+			alternando a granularidade da leitura de pontuações.</p>
+		<p>Toda ação executada se limita a linha de comando, que pode ser lida pressionando a tecla seta para baixo. O
+			diretório atual será lido seguido pelo texto que se encontra na linha de comando. A partir daqui a
+			manipulação do texto segue os princípios básicos definidos pelo leitor de tela.</p>
+		<p>Dica: Ao utilizar o comando de deleção, por uso do Backspace ou delete, conjunto a tecla Ctrl, para atingir
+			palavras, espaços serão considerados como palavras individuais. Ou seja, ao escrever uma palavra seguida de
+			um espaço, para excluí-la será necessário realizar o comando Ctrl +Backspace duas vezes.</p>
 
 		<H2>Histórico de comandos</H2>
-		<p>Como mencionado anteriormente, quando pressionada a tecla direcional para baixo, o leitor apresentará as informações contidas na linha de comando. Com as setas laterais, direita e esquerda, será possível navegar pelo texto inserido. Todavia, uma vez pressionado a seta direcional para cima, obteremos acesso a todo histórico de comandos utilizados durante a execução do programa.</p>
-		<p>A cada novo pressionamento de tecla “seta para cima”, selecionaremos a entrada anterior utilizada e, com a “seta para baixo” selecionamos a entrada posterior. É preciso notar, entretanto, que, uma vez pressionada a tecla para acesso ao histórico, mesmo pressionando a tecla para baixo até o final da lista, não conseguiremos retornar para o estado da linha de comando vazia. Ou seja, para escrever um novo comando desde o início, será preciso deletar o texto correspondente ao apresentado pelo histórico.</p>
-		<p>É permitido, ademais, o reaproveitamento dos comandos do histórico, realizando alterações no texto. Para tanto, basta navegar com as setas direcionais até o comando em que é necessário fazer alguma modificação e utilizar da edição tradicional de texto para modificar o conteúdo necessário.</p>
+		<p>Como mencionado anteriormente, quando pressionada a tecla direcional para baixo, o leitor apresentará as
+			informações contidas na linha de comando. Com as setas laterais, direita e esquerda, será possível navegar
+			pelo texto inserido. Todavia, uma vez pressionado a seta direcional para cima, obteremos acesso a todo
+			histórico de comandos utilizados durante a execução do programa.</p>
+		<p>A cada novo pressionamento de tecla “seta para cima”, selecionaremos a entrada anterior utilizada e, com a
+			“seta para baixo” selecionamos a entrada posterior. É preciso notar, entretanto, que, uma vez pressionada a
+			tecla para acesso ao histórico, mesmo pressionando a tecla para baixo até o final da lista, não
+			conseguiremos retornar para o estado da linha de comando vazia. Ou seja, para escrever um novo comando desde
+			o início, será preciso deletar o texto correspondente ao apresentado pelo histórico.</p>
+		<p>É permitido, ademais, o reaproveitamento dos comandos do histórico, realizando alterações no texto. Para
+			tanto, basta navegar com as setas direcionais até o comando em que é necessário fazer alguma modificação e
+			utilizar da edição tradicional de texto para modificar o conteúdo necessário.</p>
 
 		<h2>Navegando por diretórios</h2>
-		<p>O primeiro comando apresentado no artigo e que, provavelmente, será o mais utilizado por você durante o uso do Power Shell, é o “cd”, ou change directory (alterar diretório).</p>
-		<p>O nome do comando é auto explicativo. O “cd” é utilizado para acessar um diretório mediante inserção de seu caminho, ou nome, a partir do diretório atual.</p>
+		<p>O primeiro comando apresentado no artigo e que, provavelmente, será o mais utilizado por você durante o uso
+			do Power Shell, é o “cd”, ou change directory (alterar diretório).</p>
+		<p>O nome do comando é auto explicativo. O “cd” é utilizado para acessar um diretório mediante inserção de seu
+			caminho, ou nome, a partir do diretório atual.</p>
 		<p>Como exemplo, se eu estiver no diretório do meu usuário:</p>
 		PS C:\Users\Windows10 ><br>
-		<p>E utilize o comando “cd documentos”, acessarei a minha pasta de documentos. O meu caminho atual será, então:</p>
+		<p>E utilize o comando “cd documentos”, acessarei a minha pasta de documentos. O meu caminho atual será, então:
+		</p>
 		PS C:\Users\Windows10/documentos > <br>
-		<p>A partir desse ponto, qualquer comando inserido será atuante na pasta em que estou localizado, ou seja, na pasta de documentos do meu usuário.</p>
-		<p>É preciso, entretanto, utilizar a nomenclatura correta da pasta em que quero me locomover. Caso contrário, um erro será lido, informando que o diretório não foi encontrado. É importante dizer que existem certas regras para a adição do nome da pasta:</p>
+		<p>A partir desse ponto, qualquer comando inserido será atuante na pasta em que estou localizado, ou seja, na
+			pasta de documentos do meu usuário.</p>
+		<p>É preciso, entretanto, utilizar a nomenclatura correta da pasta em que quero me locomover. Caso contrário, um
+			erro será lido, informando que o diretório não foi encontrado. É importante dizer que existem certas regras
+			para a adição do nome da pasta:</p>
 		<lo>
 			<li>Letras maiúsculas e minúsculas são consideradas;</li>
 			<li>Acentos ortográficos, se presentes, devem ser adicionados;</li>
-			<li>Se a pasta de destino conter espaços, deve ser inserida entre aspas duplas, ou seja, a pasta (Textos Faculdade) deve ser acessada com o comando (cd “Documentos Faculdade”).</li>
+			<li>Se a pasta de destino conter espaços, deve ser inserida entre aspas duplas, ou seja, a pasta (Textos
+				Faculdade) deve ser acessada com o comando (cd “Documentos Faculdade”).</li>
 		</lo>
-		<p>Para ajudar com a tarefa de escrever os nomes da forma correta, é possível utilizar o auto complete, que completa a escrita, se é encontrada uma correspondência para o texto iniciado. Para tanto, basta utilizar a tecla Tab, localizada acima da tecla Caps Lock/NVDA.</p>
-<p>		Com o pressionar da tecla “Tab” vamos para a próxima sugestão e, com  o pressionar do comando “Shift + Tab”, retornamos para a sugestão anterior.</p>
+		<p>Para ajudar com a tarefa de escrever os nomes da forma correta, é possível utilizar o auto complete, que
+			completa a escrita, se é encontrada uma correspondência para o texto iniciado. Para tanto, basta utilizar a
+			tecla Tab, localizada acima da tecla Caps Lock/NVDA.</p>
+		<p> Com o pressionar da tecla “Tab” vamos para a próxima sugestão e, com o pressionar do comando “Shift + Tab”,
+			retornamos para a sugestão anterior.</p>
 
 		<h2>Acessando informações do console</h2>
-		<p>Para obtermos as informações de retorno dos comandos executados, é preciso utilizar a navegação por exploração de texto. Para tanto, para os usuários de teclado desktop, basta utilizar o teclado numérico para revisar as linhas presentes na interface.</p>
-		<p>De modo geral, com o NumLock desativado,  as teclas 7, 8 e 9 atuam sobre as linhas, 4, 5 e 6 nas palavras e, por fim, 1, 2 e 3 sob as letras do texto. Na ordem que são citadas, a leitura é feita do elemento anterior, atual e posterior.</p>
-		<p>Para complementar o estudo, e para os usuários de teclado de notebook, é possível revisar todos os comandos listados na seção 5.5 do guia de referência do NVDA. Para acessá-lo,  entre no menu no NVDA (NVDA + N), expanda o menu “Ajuda” e selecione a opção “Guia do usuário”. A seção 5.5 é referente a navegação de exploração de texto e pode ser acessada mais rapidamente com a tecla de atalho ‘H’, para navegar entre os títulos da página, ou por meio da linha numérica, acessando o título de nível 2, referente ao quinto capítulo, e, posteriormente, a quinta seção, de título de nível 3.</p>
+		<p>Para obtermos as informações de retorno dos comandos executados, é preciso utilizar a navegação por
+			exploração de texto. Para tanto, para os usuários de teclado desktop, basta utilizar o teclado numérico para
+			revisar as linhas presentes na interface.</p>
+		<p>De modo geral, com o NumLock desativado, as teclas 7, 8 e 9 atuam sobre as linhas, 4, 5 e 6 nas palavras e,
+			por fim, 1, 2 e 3 sob as letras do texto. Na ordem que são citadas, a leitura é feita do elemento anterior,
+			atual e posterior.</p>
+		<p>Para complementar o estudo, e para os usuários de teclado de notebook, é possível revisar todos os comandos
+			listados na seção 5.5 do guia de referência do NVDA. Para acessá-lo, entre no menu no NVDA (NVDA + N),
+			expanda o menu “Ajuda” e selecione a opção “Guia do usuário”. A seção 5.5 é referente a navegação de
+			exploração de texto e pode ser acessada mais rapidamente com a tecla de atalho ‘H’, para navegar entre os
+			títulos da página, ou por meio da linha numérica, acessando o título de nível 2, referente ao quinto
+			capítulo, e, posteriormente, a quinta seção, de título de nível 3.</p>
 
 		<h3>Copiando informações</h3>
-		<p>Dado a necessidade do uso do método de exploração de texto para acessar as informações apresentadas pelo Power Shell, não é possível selecionar o texto com a tecla shift, com posterior comando CTRL + C, para copiar as informações, como realizado em outros editores de texto tradicionais. Para tanto, será preciso realizar a seleção e cópia por meio do método de exploração.</p>
-		<p>O procedimento é bem simples. Para selecionar o texto, é preciso se locomover até o início do texto ao qual queremos copiar, pressionar a tecla NVDA conjunto com a tecla de função F9. O NVDA informará que o início da seleção foi marcado.</p>
-		<p>Nos locomovemos para o final da seleção desejada e pressionamos o comando NVDA + F9, sendo que a tecla F9 deve ser pressionada por duas vezes seguidas. Em um editor tradicional, o primeiro pressionamento selecionaria o texto. Como estamos no Power Shell, a seleção não é permitida, retornando uma mensagem informando a indisponibilidade. Entretanto, com o pressionamento pela segunda vez, realizamos a cópia da informação.</p> 
-		<p>A partir daí, o texto pode ser colado em qualquer outro local. Se quiser verificar o texto copiado, entretanto, é possível  pressionar o comando NVDA + C, que lê o texto contido na área de transferência.</p>
-		<p>A título de curiosidade, vários textos podem ser copiados em sequência e, quando necessário for, o pressionamento do comando Windows + V, permite acessar todo o histórico de cópia e colagem do selecionado.</p>
+		<p>Dado a necessidade do uso do método de exploração de texto para acessar as informações apresentadas pelo
+			Power Shell, não é possível selecionar o texto com a tecla shift, com posterior comando CTRL + C, para
+			copiar as informações, como realizado em outros editores de texto tradicionais. Para tanto, será preciso
+			realizar a seleção e cópia por meio do método de exploração.</p>
+		<p>O procedimento é bem simples. Para selecionar o texto, é preciso se locomover até o início do texto ao qual
+			queremos copiar, pressionar a tecla NVDA conjunto com a tecla de função F9. O NVDA informará que o início da
+			seleção foi marcado.</p>
+		<p>Nos locomovemos para o final da seleção desejada e pressionamos o comando NVDA + F9, sendo que a tecla F9
+			deve ser pressionada por duas vezes seguidas. Em um editor tradicional, o primeiro pressionamento
+			selecionaria o texto. Como estamos no Power Shell, a seleção não é permitida, retornando uma mensagem
+			informando a indisponibilidade. Entretanto, com o pressionamento pela segunda vez, realizamos a cópia da
+			informação.</p>
+		<p>A partir daí, o texto pode ser colado em qualquer outro local. Se quiser verificar o texto copiado,
+			entretanto, é possível pressionar o comando NVDA + C, que lê o texto contido na área de transferência.</p>
+		<p>A título de curiosidade, vários textos podem ser copiados em sequência e, quando necessário for, o
+			pressionamento do comando Windows + V, permite acessar todo o histórico de cópia e colagem do selecionado.
+		</p>
 
-	<p><br>A partir daqui, qualquer tutorial poderá ser acompanhado, ainda que não seja feito especificamente para usuários de leitores de tela, já que as restrições passam a ser mínimas quanto a interação com o CLI. O estudo se prossegue nesse artigo, entretanto. Te proponho estudar por várias fontes distintas, a fim de adquirir o máximo de informações e opções, já que muito pode ser feito por meio dessa ferramenta.</p>
+		<p><br>A partir daqui, qualquer tutorial poderá ser acompanhado, ainda que não seja feito especificamente para
+			usuários de leitores de tela, já que as restrições passam a ser mínimas quanto a interação com o CLI. O
+			estudo se prossegue nesse artigo, entretanto. Te proponho estudar por várias fontes distintas, a fim de
+			adquirir o máximo de informações e opções, já que muito pode ser feito por meio dessa ferramenta.</p>
 
 		<h2>Manipulando diretórios</h2>
 		<p>Em construção...</p>
 
-				<h2>Instalações adicionais</h2> 
+		<h2>Instalações adicionais</h2>
 		<h3>Extensão prompt NVDA</h3>
 		<p>Em construção...</p>
 
-		<h3>Windows terminal</h3> 
-		<p>Em construção...</p>
+		<h3>Windows terminal</h3>
+		<p>O Windows Terminal é um novo terminal de linha de comando, complementar ao power shell. Ele oferece uma
+			série de recursos novos e aprimorados, tornando-o uma opção mais poderosa e versátil do que o antigo console
+			de comando.</p>
 
-<h2>Revisão</h2>
-		<p>Nesse artigo você aprendeu sobre os fundamentos de uma linha de comando, as principais funções do Power Shell, como navegar e acessar as informações apresentadas pelo console e os primeiros comandos de manipulação de diretórios e interface.</p>
-<h2>Fontes utilizadas</h2>
-<a href="https://www.lucasradaelli.com/como-usar-o-windows-powershell-com-o-nvda/">Como utilizar o Power Shell com NVDA - Lucas R.</a>
+		<h4>Principais funcionalidades</h4>
+
+		<ul>
+			<li>Suporte a múltiplas guias</li>
+			<li>Personalização</li>
+			<li>Suporte a extensões</li>
+		</ul>
+
+		<h4>Instalação</h4>
+
+		<ol>
+			<li>Abra a Microsoft Store usando o atalho de teclado <kbd>Windows + R</kbd> e digitando
+				<kbd>ms-windows-store:/p:Microsoft.WindowsTerminal</kbd>.
+			</li>
+			<li>Pressione <kbd>Enter</kbd>.</li>
+			<li>Na página do Windows Terminal na Microsoft Store, clique em <kbd>Obter</kbd>.</li>
+			<li>Quando a instalação for concluída, clique em <kbd>Abrir</kbd>.</li>
+		</ol>
+
+		<h4>Uso</h4>
+
+		<ul>
+			<li>Para abrir uma nova guia, pressione <kbd>Ctrl + Alt + T</kbd>.</li>
+			<li>Para fechar uma guia, pressione <kbd>Ctrl + Alt + F4</kbd>.</li>
+			<li>Para personalizar o Windows Terminal, abra o menu <kbd>Arquivo</kbd> usando o atalho de teclado <kbd>Alt
+					+ F</kbd> e selecione <kbd>Configurações</kbd>.</li>
+			<li>Para instalar extensões, abra o menu <kbd>Arquivo</kbd> e selecione <kbd>Obter extensões</kbd>.</li>
+		</ul>
+
+		<h4>Dicas para usar o Windows Terminal com um leitor de tela</h4>
+
+		<ul>
+			<li>Para navegar pelas guias, pressione <kbd>Tab</kbd> ou <kbd>Shift + Tab</kbd>.</li>
+			<li>Para abrir um prompt de comando em uma guia, pressione <kbd>Enter</kbd> na guia.</li>
+			<li>Para fechar um prompt de comando, pressione <kbd>Ctrl + Alt + F4</kbd>.</li>
+			<li>Para personalizar o Windows Terminal, abra o menu <kbd>Arquivo</kbd> usando o atalho de teclado <kbd>Alt
+					+ F</kbd> e selecione <kbd>Configurações</kbd>.</li>
+			<li>Para instalar extensões, abra o menu <kbd>Arquivo</kbd> e selecione <kbd>Obter extensões</kbd>.</li>
+		</ul>
+
+
+		<h2>Revisão</h2>
+		<p>Nesse artigo você aprendeu sobre os fundamentos de uma linha de comando, as principais funções do Power
+			Shell, como navegar e acessar as informações apresentadas pelo console e os primeiros comandos de
+			manipulação de diretórios e interface.</p>
+		<h2>Fontes utilizadas</h2>
+		<a href="https://www.lucasradaelli.com/como-usar-o-windows-powershell-com-o-nvda/">Como utilizar o Power Shell
+			com NVDA - Lucas R.</a>
 
 	</article>
 	<iframe src="/Web/Models/Footer.html" frameborder="0"></iframe>
 </body>
+
 </html>
